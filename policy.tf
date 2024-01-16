@@ -20,5 +20,5 @@ POLICY_RULE
 resource "azurerm_management_group_policy_assignment" "example" {
   name                 = "azure-policy"
   policy_definition_id = azurerm_policy_definition.example.id
-  management_group_id  = azurerm_management_group.managementgroup[each.key].id
+  management_group_id  = azurerm_management_group.managementgroup.id
 }
