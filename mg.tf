@@ -11,9 +11,8 @@ resource "azurerm_role_assignment" "mg_creator" {
 }
 
 resource "azurerm_management_group" "managementgroup" {
-  for_each                   = local.environments
-  name                       = join("-", compact(["spokehub", each.key, "mg"]))
-  display_name               = join("-", compact(["spokehub", each.key, "mg"]))
+  name                       = join("-", compact(["spokehub", "pmg"]))
+  display_name               = join("-", compact(["spokehub", "pmg"]))
   parent_management_group_id = var.parentgroup
   subscription_ids = [
     data.azurerm_subscription.current.subscription_id,
